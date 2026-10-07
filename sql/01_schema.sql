@@ -1,3 +1,4 @@
+-- 목적: 사이버웨어와 빌드의 조합을 관리하여 플레이 스타일별 빌드를 구성하고 비교·분석하기 위한 관계형 데이터베이스
 -- 테이블 생성 순서 : 부모 테이블 cyberware_slot -> cyberware -> build -> build_cyberware
 
 SHOW DATABASES;
@@ -21,7 +22,7 @@ CREATE TABLE cyberware (
     -- 기본키 : 정수형 타입, 자동 생성 옵션 선택
     cyberware_id INTEGER PRIMARY KEY AUTO_INCREMENT,
     -- 사이버웨어 이름 : 가변적인 문자열 타입, 빈 값 불가
-    cyberware_name VARCHAR(150) NOT NULL,
+    cyberware_name VARCHAR(50) NOT NULL,
     -- 사이버웨어 등급: 1부터 5까지의 정수형 값, 빈 값 불가
     quality INTEGER NOT NULL,
     -- 사이버웨어 용량: 빌드의 전체 용량을 차지하는 수치, 빈 값 불가, 0도 허용
@@ -53,10 +54,10 @@ CREATE TABLE build (
     -- 기본키 : 정수형 타입, 자동 생성 옵션 선택
     build_id INTEGER PRIMARY KEY AUTO_INCREMENT,
     -- 빌드 이름 : 가변적인 문자열 타입, 빈 값과 중복 불가
-    build_name VARCHAR(200) NOT NULL UNIQUE,
+    build_name VARCHAR(50) NOT NULL UNIQUE,
     -- 빌드 유형 : 넷러너, 솔로, 잠입/암살
     -- 같은 유형의 빌드가 여러 개 있을 수 있으므로 UNIQUE는 적용하지 않음
-    build_type VARCHAR(50) NOT NULL
+    build_type VARCHAR(30) NOT NULL
 );
 
 -- 빌드 사이버웨어 테이블
@@ -67,6 +68,7 @@ CREATE TABLE build_cyberware (
     cyberware_id INTEGER NOT NULL,
     -- 같은 빌드에 같은 사이버웨어를 중복 연결하지 못하도록 설정
     CONSTRAINT pk_build_cyberware
+    -- 복합 기본키
         PRIMARY KEY (build_id, cyberware_id),
     -- 존재하는 빌드만 참조 가능
     CONSTRAINT fk_build_cyberware_build
