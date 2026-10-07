@@ -25,7 +25,7 @@ CREATE TABLE cyberware (
     cyberware_name VARCHAR(50) NOT NULL,
     -- 사이버웨어 등급: 1부터 5까지의 정수형 값, 빈 값 불가
     quality INTEGER NOT NULL,
-    -- 사이버웨어 용량: 빌드의 전체 용량을 차지하는 수치, 빈 값 불가, 0도 허용
+    -- 사이버웨어 용량: 빌드의 전체 용량에서 해당 사이버웨어가 차지하는 수치, 빈 값 불가, 0도 허용
     capacity INTEGER NOT NULL DEFAULT 0,
     -- 방어력 증가량: 증가 효과가 없으면 0으로 저장
     defense_bonus INTEGER NOT NULL DEFAULT 0,
