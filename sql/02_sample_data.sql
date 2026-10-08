@@ -135,7 +135,7 @@ INSERT INTO cyberware
         (SELECT slot_id FROM cyberware_slot WHERE slot_name = '외피 시스템')
     ),
     (
-        '옵터컬 카모', 3, 20, 25,
+        '옵티컬 카모', 3, 20, 25,
         (SELECT slot_id FROM cyberware_slot WHERE slot_name = '외피 시스템')
     ),
     (
@@ -276,7 +276,7 @@ VALUES
     ),
     (
         (SELECT build_id FROM build WHERE build_name = '스텔스 러너'),
-        (SELECT cyberware_id FROM cyberware WHERE cyberware_name = '옵터컬 카모')
+        (SELECT cyberware_id FROM cyberware WHERE cyberware_name = '옵티컬 카모')
     ),
     (
         (SELECT build_id FROM build WHERE build_name = '스텔스 러너'),
@@ -441,7 +441,7 @@ VALUES
     (
         (SELECT build_id FROM build WHERE build_name = '산데비스탄 블레이드'),
         (SELECT cyberware_id FROM cyberware
-             WHERE cyberware_name = '옵터컬 카모')
+             WHERE cyberware_name = '옵티컬 카모')
     ),
     (
           (SELECT build_id FROM build WHERE build_name = '산데비스탄 블레이드'),
@@ -493,7 +493,7 @@ VALUES
     (
         (SELECT build_id FROM build WHERE build_name = '은신 권총'),
         (SELECT cyberware_id FROM cyberware
-            WHERE cyberware_name = '옵터컬 카모')
+            WHERE cyberware_name = '옵티컬 카모')
     ),
     (
         (SELECT build_id FROM build WHERE build_name = '은신 권총'),
