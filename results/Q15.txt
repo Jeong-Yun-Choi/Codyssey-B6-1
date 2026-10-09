@@ -1,0 +1,10 @@
+CREATE INDEX cyberware_spec_margin ⤶ON cyberware(quality, capacity)
+
+AffectedRows : 0
+
+cyberware	0	PRIMARY	1	cyberware_id	A	50				BTREE			YES	
+cyberware	0	uq_cyberware_name_quality	1	cyberware_name	A	50				BTREE			YES	
+cyberware	0	uq_cyberware_name_quality	2	quality	A	50				BTREE			YES	
+cyberware	1	fk_cyberware_slot	1	slot_id	A	10				BTREE			YES	
+cyberware	1	cyberware_spec_margin	1	quality	A	5				BTREE			YES	
+cyberware	1	cyberware_spec_margin	2	capacity	A	30				BTREE			YES	
