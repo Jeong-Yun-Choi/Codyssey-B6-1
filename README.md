@@ -50,7 +50,10 @@ build          1 ─── N build_cyberware N ─── 1 cyberware
 sql/
 ├── 01_schema.sql       # 테이블 생성 및 제약조건
 ├── 02_sample_data.sql  # 샘플 데이터 입력
-└── 03_queries.sql      # 핵심 쿼리 Q1~Q15
+├── 03_queries.sql      # 핵심 쿼리 Q1~Q15
+├── 04_bonus_queries.sql # 보너스 과제 1: JOIN과 서브쿼리 비교
+├── 05_bonus_fk_test.sql # 보너스 과제 2: 외래키 오류 및 해결
+└── 06_bonus_report.sql  # 보너스 과제 3: 핵심 지표 조회
 
 results/
 ├── Q1.txt ~ Q15.txt    # 쿼리 실행 결과 텍스트
@@ -118,6 +121,36 @@ CREATE INDEX cyberware_spec_margin
 ON cyberware(quality, capacity);
 ```
 
+## 보너스 과제
+
+### 보너스 과제 1: JOIN과 서브쿼리 비교
+
+`외피 시스템` 슬롯의 사이버웨어를 조회하는 같은 요구사항을 JOIN 방식과 서브쿼리 방식으로 각각 작성했습니다.
+
+- 파일: `sql/04_bonus_queries.sql`
+- 비교 내용: 테이블을 직접 연결하는 JOIN 방식과 슬롯 ID를 먼저 조회하는 서브쿼리 방식
+
+### 보너스 과제 2: 외래키 오류 및 해결
+
+존재하지 않는 `slot_id`를 입력하여 외래키 오류를 의도적으로 발생시키고, 올바른 슬롯을 참조하는 INSERT문으로 수정했습니다. 이후 사이버웨어와 슬롯이 정상적으로 연결되었는지도 확인하도록 구성했습니다.
+
+- 파일: `sql/05_bonus_fk_test.sql`
+- 확인 내용: 외래키 오류 원인, 수정된 INSERT문, 정상 입력 결과
+
+### 보너스 과제 3: 핵심 지표 미니 리포트
+
+빌드 관리 목적에 맞춰 다음 세 가지 핵심 지표를 SQL로 작성했습니다.
+
+1. 빌드별 사용 사이버웨어 용량과 잔여 용량
+2. 슬롯별 사이버웨어 종류와 평균 용량
+3. 빌드별 총 방어력 증가량
+
+- 파일: `sql/06_bonus_report.sql`
+- 집계 함수: `COUNT`, `SUM`, `AVG`
+- 활용 문법: `LEFT JOIN`, `GROUP BY`, `ORDER BY`
+
+보너스 과제의 실행 결과도 `results` 폴더에 별도로 정리했습니다.
+
 ## ERD
 
 ![Cyberware Build Database ERD](cyberware_build_db_ERD.png)
@@ -131,3 +164,6 @@ ON cyberware(quality, capacity);
 - [x] 핵심 쿼리 Q1~Q15
 - [x] 쿼리 실행 결과 텍스트
 - [x] ERD 이미지
+- [x] 보너스 과제 1: JOIN과 서브쿼리 비교
+- [x] 보너스 과제 2: 외래키 오류 및 해결
+- [x] 보너스 과제 3: 핵심 지표 미니 리포트
