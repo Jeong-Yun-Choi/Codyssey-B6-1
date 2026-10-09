@@ -139,18 +139,13 @@ WHERE cyberware_name = '옵티컬 카모';
 -- Q14. 현재 어떤 빌드에도 연결되지 않은 투사체 발사 시스템 사이버웨어를 삭제하십시오.
 -- 삭제하기 전에 해당 사이버웨어가 build_cyberware에 연결되어 있지 않은지 먼저 확인하십시오.
 
--- 해당 사이버웨어의 id를 확인
-SELECT *
-FROM cyberware
-WHERE cyberware_name LIKE "투사체%";
-
 -- 빌드 사이버웨어 연결 여부 확인
 -- 빌드 사이버웨어 id 부분에 null이 나오면 연결이 되지 않은것
 SELECT bc.cyberware_id, c.cyberware_name
 FROM cyberware as c
 LEFT JOIN build_cyberware as bc
     ON bc.cyberware_id = c.cyberware_id
-WHERE c.cyberware_id = 150;
+WHERE c.cyberware_name LIKE "투사체%";
 
 -- DELETE문으로 해당 사이버웨어 삭제
 DELETE FROM cyberware
