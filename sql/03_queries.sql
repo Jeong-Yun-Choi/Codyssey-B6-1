@@ -97,7 +97,7 @@ GROUP BY cs.slot_name;
 
 SELECT quality as 등급, AVG(capacity) as 평균용량
 FROM cyberware
-GROUP BY quality
+GROUP BY quality;
 
 -- 문제 11
 -- Q11. 각 빌드에 연결된 사이버웨어의 개수를 구하십시오.
