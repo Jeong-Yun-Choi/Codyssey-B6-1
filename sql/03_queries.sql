@@ -149,7 +149,7 @@ WHERE c.cyberware_name LIKE "투사체%";
 
 -- DELETE문으로 해당 사이버웨어 삭제
 DELETE FROM cyberware
-WHERE cyberware_name LIKE "투사체%"
+WHERE cyberware_name LIKE "투사체%";
 
 -- 삭제됐는지 확인
 SELECT COUNT(*) AS 카운트
