@@ -30,3 +30,23 @@ VALUES
          FROM cyberware_slot
          WHERE slot_name = '얼굴')
     );
+
+-- 2-4. 정상 INSERT 결과 확인
+-- 사이버웨어와 슬롯이 외래키로 정상 연결되었는지 확인
+SELECT
+    c.cyberware_id,
+    c.cyberware_name,
+    c.quality,
+    c.capacity,
+    c.defense_bonus,
+    s.slot_id,
+    s.slot_name
+FROM cyberware AS c
+JOIN cyberware_slot AS s
+    ON c.slot_id = s.slot_id
+WHERE c.cyberware_name = 'FK 오류 테스트용 사이버웨어';
+
+-- 테스트 데이터가 한 행만 입력되었는지 확인
+SELECT COUNT(*) AS test_data_count
+FROM cyberware
+WHERE cyberware_name = 'FK 오류 테스트용 사이버웨어';
