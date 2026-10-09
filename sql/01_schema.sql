@@ -57,7 +57,7 @@ CREATE TABLE build (
     build_name VARCHAR(50) NOT NULL UNIQUE,
     -- 빌드 유형 : 넷러너, 솔로, 잠입/암살
     -- 같은 유형의 빌드가 여러 개 있을 수 있으므로 UNIQUE는 적용하지 않음
-    build_type VARCHAR(30) NOT NULL
+    build_type VARCHAR(30) NOT NULL,
     -- 빌드에서 사용할 수 있는 최대 사이버웨어 용량
     -- 게임 기준 최대 용량인 450으로 설정
     max_cyberware_capacity INTEGER NOT NULL DEFAULT 450,
